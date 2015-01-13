@@ -1,10 +1,39 @@
 <table>
     <thead>
     <tr>
-        <th ng-repeat="user in users">{{ user.name }}</th>
+        <th ng-click="changeSorting('name')">
+            Ime
+            <span ng-class="showIcon('name')"></span>
+        </th>
+
+        <th ng-click="changeSorting('surname')">
+            Prezime
+            <span ng-class="showIcon('surname')"></span>
+        </th>
+
+        <th ng-click="changeSorting('position')">
+            Pozicija
+            <span ng-class="showIcon('position')"></span>
+        </th>
+
+        <th ng-click="changeSorting('dateOfBirth')">
+            Datum rođenja
+            <span ng-class="showIcon('dateOfBirth')"></span>
+        </th>
+
+        <th ng-click="changeSorting('employed')">
+            Provedeno vrijeme u firmi
+            <span ng-class="showIcon('employed')"></span>
+        </th>
     </tr>
     </thead>
     <tbody>
-
+        <tr ng-repeat="user in users | orderBy:sort.active:sort.descending">
+            <td>{{ user.name }}</td>
+            <td>{{ user.surname }}</td>
+            <td>{{ user.position }}</td>
+            <td>{{ user.dateOfBirth }}</td>
+            <td>{{ employedIn(user.employed) }}</td>
+        </tr>
     </tbody>
 </table>
