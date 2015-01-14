@@ -47,7 +47,7 @@ angular.module('UserListApp')
             var currentYear = $scope.year;
             total = currentYear - column;
             console.log(column);
-            if(total == 1 || total == 2 || total == 3 || total == 4) {
+            if(total == 2 || total == 3 || total == 4) {
                 return total + " godine";
             } else {
                 return total + " godina";
